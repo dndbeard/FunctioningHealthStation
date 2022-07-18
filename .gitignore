@@ -30,3 +30,8 @@
 *.exe
 *.out
 *.app
+
+#Custom (copied from AltairreAtsu)
+.vs
+x64
+desktop.ini
