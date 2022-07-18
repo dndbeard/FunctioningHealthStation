@@ -1,0 +1,17 @@
+{    
+    "Name": "Health Station Block",
+    "CreatorName": "dndbeard",
+    "UniqueID": 823420,
+    "Recipe": {
+      "Array" : [35,68,35,68,68,68,35,68,35],
+      "SizeX": 1,
+      "SizeY": 3,
+      "SizeZ": 3
+  },
+    "Yield": 1,
+    "SimilarTo": 2,
+    "Textures": {
+        "Mode": 1,
+        "WithNormals" : false
+      }
+  }
