@@ -26,7 +26,7 @@ Block GetCustomBlockInFrontOfHand(CoordinateInCentimeters handPosition, int offs
 	
 	BlockInfo blockInfo = BlockInfo();
 	if (coords.Z < 800 && coords.Z > 0) {
-		BlockInfo blockInfo = GetBlock(CoordinateInBlocks(coords));
+		blockInfo = GetBlock(CoordinateInBlocks(coords));
 	}
 		
 	block.at = coords;
