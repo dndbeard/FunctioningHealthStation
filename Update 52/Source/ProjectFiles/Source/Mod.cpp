@@ -23,24 +23,26 @@ Block GetCustomBlockInFrontOfHand(CoordinateInCentimeters handPosition, int offs
 		handPosition.Y + offsetY,
 		handPosition.Z
 	);
-	
+
 	BlockInfo blockInfo = BlockInfo();
-	if (coords.Z < 800 && coords.Z > 0) {
+	CoordinateInBlocks coordsInBlocks = CoordinateInBlocks(coords);
+	if (coordsInBlocks.Z < 800 && coordsInBlocks.Z > 0) {					// 0 < Z < 800 to avoid crash
 		blockInfo = GetBlock(CoordinateInBlocks(coords));
 	}
 		
-	block.at = coords;
+	block.at = coordsInBlocks;
 	block.blockInfo = blockInfo;
 
 	// If no custom block found, change offsets
 	// Different offsets mean different sides of the block
 	if (block.blockInfo.Type != EBlockType::ModBlock) {
+	//if (block.blockInfo.CustomBlockID == 0) {
 		if (offsetX == 25) return GetCustomBlockInFrontOfHand(handPosition, -25);
 		if (offsetX == -25) return GetCustomBlockInFrontOfHand(handPosition, 0, 25);
 		if (offsetY == 25) return GetCustomBlockInFrontOfHand(handPosition, 0, -25);
 	}
 
-	// Returned block can still have CustomBlockID 0!!!
+	// Returned block can still have CustomBlockID 0 (or be invalid)!!!
 	return block;
 }
 
